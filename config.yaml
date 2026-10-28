@@ -1,0 +1,19 @@
+# Cấu hình ứng dụng nhận diện cảm xúc
+camera:
+  # URL IP camera điện thoại. Có thể ghi đè bằng --source khi chạy
+  source: "http://192.168.4.55:8080/video"
+
+# Đường dẫn trọng số (tính từ thư mục gốc dự án)
+models:
+  cnn: weights/m1_cnn.pth
+  transfer: weights/m2_resnet18.pth
+
+# Dự đoán có confidence thấp hơn ngưỡng này sẽ vẽ màu cam và có dấu "?"
+confidence_threshold: 0.5
+
+# Tham số bộ dò khuôn mặt Haar Cascade
+detector:
+  scale_factor: 1.1
+  min_neighbors: 5
+  min_face_size: 60
+  detect_width: 640
